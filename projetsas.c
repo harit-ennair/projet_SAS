@@ -11,8 +11,8 @@ typedef struct
     char prenom[MAX];
     char numerodetelephone[MAX];
     int age;
-    char date[MAX];
     char statut[MAX]; //(validé, reporté, annulé, traité).
+    char date[MAX];
 } Ajouter;
 Ajouter a[MAX] = {  {1,"khalid","khalid","076487213",20,"valide","12/12/2024"},
                     {2,"Omar","lem","076487213",11,"reporte","12/1/2024"},
@@ -96,7 +96,7 @@ void Modifier()
     }
     break;
     default:
-        printf(" Choix Invalide");
+        printf("Choix Invalide");
     }
 }
 void Afficher()
@@ -110,13 +110,14 @@ void Afficher()
         printf("===================== Afficher Le Stock ======================\n");
         for (int i = 0; i < nbr; i++)
         {
-            printf("%s\n", a[i].num);
-            printf("%s\n", a[i].prenom);
-            printf("%s\n", a[i].numerodetelephone);
-            printf("%d\n", a[i].age);
-            printf("%s\n", a[i].date);
-            printf("%d\n", a[i].id);
-            printf("%s\n", a[i].statut);
+            printf("=======================================\n");
+            printf("num :%s\n", a[i].num);
+            printf("prenom :%s\n", a[i].prenom);
+            printf("numero de telephone :%s\n", a[i].numerodetelephone);
+            printf("age :%d\n", a[i].age);
+            printf("date :%s\n", a[i].date);
+            printf("ID :%d\n", a[i].id);
+            printf("statut :%s\n", a[i].statut);
         }
     }
 }
@@ -145,13 +146,14 @@ int Rechercher()
         if (chercher == a[i].id)
         {
             printf("---------- contacte est Trouve ----------\n");
-            printf("%s\n", a[i].num);
-            printf("%s\n", a[i].prenom);
-            printf("%s\n", a[i].numerodetelephone);
-            printf("%d\n", a[i].age);
-            printf("%s\n", a[i].date);
-            printf("%d\n", a[i].id);
-            printf("%s\n", a[i].statut);
+            printf("=======================================\n");
+            printf("num :%s\n", a[i].num);
+            printf("prenom :%s\n", a[i].prenom);
+            printf("numero de telephone :%s\n", a[i].numerodetelephone);
+            printf("age :%d\n", a[i].age);
+            printf("date :%s\n", a[i].date);
+            printf("ID :%d\n", a[i].id);
+            printf("statut :%s\n", a[i].statut);
             found = 1;
             return i;
             break;
@@ -174,13 +176,14 @@ int Rechercherparnum()
         if (strcmp(a[i].num, chercher) == 0)
         {
             printf("---------- contacte est Trouve ----------\n");
-            printf("%s\n", a[i].num);
-            printf("%s\n", a[i].prenom);
-            printf("%s\n", a[i].numerodetelephone);
-            printf("%d\n", a[i].age);
-            printf("%s\n", a[i].date);
-            printf("%d\n", a[i].id);
-            printf("%s\n", a[i].statut);
+            printf("=======================================\n");
+            printf("num :%s\n", a[i].num);
+            printf("prenom :%s\n", a[i].prenom);
+            printf("numero de telephone :%s\n", a[i].numerodetelephone);
+            printf("age :%d\n", a[i].age);
+            printf("date :%s\n", a[i].date);
+            printf("ID :%d\n", a[i].id);
+            printf("statut :%s\n", a[i].statut);
             found = 1;
             return i;
             break;
@@ -191,14 +194,161 @@ int Rechercherparnum()
 
     return -1;
 }
+
 void statistiques()
 {
 
 
+           do
+            {
+                int choix4;
+                printf("\nMenu: \n");
+                printf("1. moyenne d'age des patients\n");
+                printf("2. patients par tranche d'age\n");
+                printf("3. Statistiques par statut\n");
+                scanf("%d", &choix4);
 
+                switch (choix4)
+                {
+                case 1:
+                {
+                            if (nbr == 0) {
+                                printf("Aucun patient enregistre.\n");
+                                return;
+                            }
+                            int somme = 0;
+                            for (int i = 0; i < nbr; i++) {
+                                somme += a[i].age;
+                            }
+                            float moyenne = somme / nbr;
+                            printf("La moyenne d'age des patients est : %.2f ans\n", moyenne);
+                }
+                break;
+                case 2:
+                {
+                            if (nbr == 0) {
+                                printf("Aucun patient enregistré.\n");
+                                return;
+                            }
+                                int tra1 = 0, tra2 = 0, tra3 = 0;
+                            
+                            for (int i = 0; i < nbr; i++) {
+                                if (a[i].age <= 18) {      
+                                    tra1++;
+                                    printf("===================minere====================\n");
+                                    printf("num :%s\n", a[i].num);
+                                    printf("prenom :%s\n", a[i].prenom);
+                                    printf("numero de telephone :%s\n", a[i].numerodetelephone);
+                                    printf("age :%d\n", a[i].age);
+                                    printf("date :%s\n", a[i].date);
+                                    printf("ID :%d\n", a[i].id);
+                                    printf("statut :%s\n", a[i].statut);
+                                }
+                                }  
+                                for (int i = 0; i < nbr; i++) {
+                                if (a[i].age <= 35 && a[i].age > 18) {
+                                    tra2++;
+                                    printf("=====================june==================\n");
+                                    printf("num :%s\n", a[i].num);
+                                    printf("prenom :%s\n", a[i].prenom);
+                                    printf("numero de telephone :%s\n", a[i].numerodetelephone);
+                                    printf("age :%d\n", a[i].age);
+                                    printf("date :%s\n", a[i].date);
+                                    printf("ID :%d\n", a[i].id);
+                                    printf("statut :%s\n", a[i].statut);
+                                }
+                                }  
+                                for (int i = 0; i < nbr; i++) {
+                                if (a[i].age > 35){
+                                    tra3++;
+                                    printf("=====================majere==================\n");
+                                    printf("num :%s\n", a[i].num);
+                                    printf("prenom :%s\n", a[i].prenom);
+                                    printf("numero de telephone :%s\n", a[i].numerodetelephone);
+                                    printf("age :%d\n", a[i].age);
+                                    printf("date :%s\n", a[i].date);
+                                    printf("ID :%d\n", a[i].id);
+                                    printf("statut :%s\n", a[i].statut);
+                                }
+                                }
+                            printf("Nombre de patients par tranche d'age :\n");
+                            printf("0-18 ans : %d\n", tra1);
+                            printf("19-35 ans : %d\n", tra2);
+                            printf("36 ans et plus : %d\n", tra3);
+                }
+                break;
+                case 3:
+                            if (nbr == 0) {
+                                printf("Aucun patient enregistré.\n");
+                                return;
+                            }
+                            int valide = 0, reporte = 0, annule = 0, traite = 0;
+                            for (int i = 0; i < nbr; i++) {
+                                if (strcmp(a[i].statut, "valide") == 0) {
+                                    valide++;
+                                    printf("=====================valide==================\n");
+                                    printf("num :%s\n", a[i].num);
+                                    printf("prenom :%s\n", a[i].prenom);
+                                    printf("numero de telephone :%s\n", a[i].numerodetelephone);
+                                    printf("age :%d\n", a[i].age);
+                                    printf("date :%s\n", a[i].date);
+                                    printf("ID :%d\n", a[i].id);
+                                    printf("statut :%s\n", a[i].statut);
+                                }
+                                }
+                                for (int i = 0; i < nbr; i++) {
+                                if (strcmp(a[i].statut, "reporte") == 0) {
+                                    reporte++;
+                                    printf("=====================reportre==================\n");
+                                    printf("num :%s\n", a[i].num);
+                                    printf("prenom :%s\n", a[i].prenom);
+                                    printf("numero de telephone :%s\n", a[i].numerodetelephone);
+                                    printf("age :%d\n", a[i].age);
+                                    printf("date :%s\n", a[i].date);
+                                    printf("ID :%d\n", a[i].id);
+                                    printf("statut :%s\n", a[i].statut);
+                                }
+                                }
 
+                                for (int i = 0; i < nbr; i++) {
+                                if (strcmp(a[i].statut, "annule") == 0) {
+                                    annule++;
+                                    printf("=====================annule==================\n");
+                                    printf("num :%s\n", a[i].num);
+                                    printf("prenom :%s\n", a[i].prenom);
+                                    printf("numero de telephone :%s\n", a[i].numerodetelephone);
+                                    printf("age :%d\n", a[i].age);
+                                    printf("date :%s\n", a[i].date);
+                                    printf("ID :%d\n", a[i].id);
+                                    printf("statut :%s\n", a[i].statut);
+                                }
+                                }
+                                for (int i = 0; i < nbr; i++) {
+                                if (strcmp(a[i].statut, "traite") == 0) {
+                                    traite++;
+                                    printf("=====================traite==================\n");
+                                    printf("num :%s\n", a[i].num);
+                                    printf("prenom :%s\n", a[i].prenom);
+                                    printf("numero de telephone :%s\n", a[i].numerodetelephone);
+                                    printf("age :%d\n", a[i].age);
+                                    printf("date :%s\n", a[i].date);
+                                    printf("ID :%d\n", a[i].id);
+                                    printf("statut :%s\n", a[i].statut);
+                                }
+                                }
+                            
 
-
+                            printf("Statistiques par statut :\n");
+                            printf("Valide : %d\n", valide);
+                            printf("Reporte : %d\n", reporte);
+                            printf("Annule : %d\n", annule);
+                            printf("Traite : %d\n", traite);
+                    break;
+                default:
+                    printf(" Choix Invalide");
+                    break;
+                }
+            } while (choix < 3);
 
 
 
