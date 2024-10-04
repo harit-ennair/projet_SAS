@@ -77,7 +77,7 @@ int Rechercher()
         }
     }
     if (!found)
-        printf("---------- reservation est Trouve ----------");
+        printf("---------- reservation pas Trouve ----------");
     return -1;
 }
 int Rechercherparnum()
