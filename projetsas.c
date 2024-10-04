@@ -569,13 +569,13 @@ int main()
         case 7:
         {
 
-            return 1;
+            return 0;
         }
         break;
         default:
             printf(" Choix Invalide");
             break;
         }
-    } while (choix < 7);
+    } while (choix != 7);
     return 0;
 }
