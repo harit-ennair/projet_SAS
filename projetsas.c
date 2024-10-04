@@ -11,7 +11,7 @@ typedef struct
     char prenom[MAX];
     char numerodetelephone[MAX];
     int age;
-    char statut[MAX]; //(validé, reporté, annulé, traité).
+    char statut[MAX];
     char date[MAX];
 } Ajouter;
 Ajouter a[MAX] = {
@@ -187,17 +187,14 @@ void Afficher()
 }
 void supprimer()
 {
-    int index = Rechercher();
-    strcpy(a[index].num, a[index + 1].num);
-    strcpy(a[index].prenom, a[index + 1].prenom);
-    strcpy(a[index].numerodetelephone, a[index + 1].numerodetelephone);
-    a[index].age = a[index + 1].age;
-    strcpy(a[index].date, a[index + 1].date);
-    a[index].id = a[index + 1].id;
-    strcpy(a[index].statut, a[index + 1].statut);
-    printf("---------reservation a ete Supprimer---------");
-    nbr--;
+            int index = Rechercher();
+         for (int i = index; i < nbr - 1; i++) {
+                a[i] = a[i + 1]; 
+            }
+            nbr--; 
+    printf("--------- Reservation a ete supprime ---------\n");
 }
+
 
 void statistiques()
 {
