@@ -126,7 +126,7 @@ void Modifier()
     printf("\nModification nobere telephone: \n");
     scanf(" %[^\n]", a[index].numerodetelephone);
     printf("\nModification age: \n");
-    scanf("%d", a[index].age);
+    scanf("%d",& a[index].age);
     printf("\nModification date: \n");
     scanf(" %[^\n]", a[index].date);
     int choix2;
@@ -187,7 +187,11 @@ void Afficher()
 }
 void supprimer()
 {
-            int index = Rechercher();
+     int index = Rechercher();
+    if (index == -1) {
+    printf("Reservation pas Trouve\n");
+    return;
+    }
          for (int i = index; i < nbr - 1; i++) {
                 a[i] = a[i + 1]; 
             }
