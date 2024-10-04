@@ -50,6 +50,67 @@ void ajoute()
     nbr += ajout;
 }
 
+int Rechercher()
+{
+    int chercher;
+    int found = 0;
+    printf("===================== Chercher Un reservation ======================\n");
+    printf("id : ");
+    scanf("%d", &chercher);
+    for (int i = 0; i < nbr; i++)
+    {
+        if (chercher == a[i].id)
+        {
+            printf("---------- reservation est Trouve ----------\n");
+            printf("=======================================\n");
+            printf("num :%s\n", a[i].num);
+            printf("prenom :%s\n", a[i].prenom);
+            printf("numero de telephone :%s\n", a[i].numerodetelephone);
+            printf("age :%d\n", a[i].age);
+            printf("date :%s\n", a[i].date);
+            printf("ID :%d\n", a[i].id);
+            printf("statut :%s\n", a[i].statut);
+            printf("=======================================\n");
+            found = 1;
+            return i;
+            break;
+        }
+    }
+    if (!found)
+        printf("---------- reservation est Trouve ----------");
+    return -1;
+}
+int Rechercherparnum()
+{
+    char chercher[MAX];
+    int found = 0;
+    printf("===================== Chercher Un reservation ======================\n");
+    printf("num : ");
+    scanf(" %[^\n]", &chercher);
+    for (int i = 0; i < nbr; i++)
+    {
+        if (strcmp(a[i].num, chercher) == 0)
+        {
+            printf("---------- reservation est Trouve ----------\n");
+            printf("=======================================\n");
+            printf("num :%s\n", a[i].num);
+            printf("prenom :%s\n", a[i].prenom);
+            printf("numero de telephone :%s\n", a[i].numerodetelephone);
+            printf("age :%d\n", a[i].age);
+            printf("date :%s\n", a[i].date);
+            printf("ID :%d\n", a[i].id);
+            printf("statut :%s\n", a[i].statut);
+            printf("=======================================\n");
+            found = 1;
+            return i;
+            break;
+        }
+    }
+    if (!found)
+        printf("----------reservation pas Trouve----------");
+
+    return -1;
+}
 void Modifier()
 {
     int index = Rechercher();
@@ -137,72 +198,9 @@ void supprimer()
     printf("---------reservation a ete Supprimer---------");
     nbr--;
 }
-int Rechercher()
-{
-    int chercher;
-    int found = 0;
-    printf("===================== Chercher Un reservation ======================\n");
-    printf("id : ");
-    scanf("%d", &chercher);
-    for (int i = 0; i < nbr; i++)
-    {
-        if (chercher == a[i].id)
-        {
-            printf("---------- reservation est Trouve ----------\n");
-            printf("=======================================\n");
-            printf("num :%s\n", a[i].num);
-            printf("prenom :%s\n", a[i].prenom);
-            printf("numero de telephone :%s\n", a[i].numerodetelephone);
-            printf("age :%d\n", a[i].age);
-            printf("date :%s\n", a[i].date);
-            printf("ID :%d\n", a[i].id);
-            printf("statut :%s\n", a[i].statut);
-            printf("=======================================\n");
-            found = 1;
-            return i;
-            break;
-        }
-    }
-    if (!found)
-        printf("---------- reservation est Trouve ----------");
-
-    return -1;
-}
-int Rechercherparnum()
-{
-    char chercher[MAX];
-    int found = 0;
-    printf("===================== Chercher Un reservation ======================\n");
-    printf("num : ");
-    scanf(" %[^\n]", &chercher);
-    for (int i = 0; i < nbr; i++)
-    {
-        if (strcmp(a[i].num, chercher) == 0)
-        {
-            printf("---------- reservation est Trouve ----------\n");
-            printf("=======================================\n");
-            printf("num :%s\n", a[i].num);
-            printf("prenom :%s\n", a[i].prenom);
-            printf("numero de telephone :%s\n", a[i].numerodetelephone);
-            printf("age :%d\n", a[i].age);
-            printf("date :%s\n", a[i].date);
-            printf("ID :%d\n", a[i].id);
-            printf("statut :%s\n", a[i].statut);
-            printf("=======================================\n");
-            found = 1;
-            return i;
-            break;
-        }
-    }
-    if (!found)
-        printf("----------reservation pas Trouve----------");
-
-    return -1;
-}
 
 void statistiques()
 {
-
     do
     {
         int choix4;
