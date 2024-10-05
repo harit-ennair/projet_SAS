@@ -356,7 +356,7 @@ void tri()
         {
         case 1:
         {
-                  for(int i=0 ; i<nbr-1 ; i++){
+                  for(int i=0 ; i<nbr ; i++){
                      for(int j=0 ; j<nbr-1-i ; j++){
                             if(strcasecmp (a[j].num,a[j+1].num)>0){
                                 Ajouter cang = a[j];
